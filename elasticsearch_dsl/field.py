@@ -182,7 +182,7 @@ class InnerObject(object):
         return self._wrap(data)
 
     def _serialize(self, data):
-        return data.to_dict() if type(data) is dict else data
+        return data.to_dict() if type(data) is not dict else data
 
     def clean(self, data):
         data = super(InnerObject, self).clean(data)
