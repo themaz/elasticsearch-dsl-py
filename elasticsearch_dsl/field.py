@@ -182,7 +182,7 @@ class InnerObject(object):
         return self._wrap(data)
 
     def _serialize(self, data):
-        return data.to_dict()
+        return data.to_dict() if type(data) is dict else data
 
     def clean(self, data):
         data = super(InnerObject, self).clean(data)
@@ -265,4 +265,3 @@ for f in FIELDS:
     fclass = _make_dsl_class(Field, f)
     globals()[fclass.__name__] = fclass
     __all__.append(fclass.__name__)
-
